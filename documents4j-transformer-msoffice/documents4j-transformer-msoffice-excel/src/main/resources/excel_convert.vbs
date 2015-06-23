@@ -30,7 +30,9 @@ Function ConvertFile( inputFile, outputFile, formatEnumeration )
 
     ' Attempt to open the source document.
     On Error Resume Next
-    Set excelDocument = excelApplication.Workbooks.Open(inputFile, , True, , , , , , , , , , , , 2)
+	
+	' Removed the additional arguments as they were preventing the excel from generating in right page layout.
+    Set excelDocument = excelApplication.Workbooks.Open(inputFile)
     If Err <> 0 Then
         WScript.Quit -2
     End If
